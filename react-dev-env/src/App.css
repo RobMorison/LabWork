@@ -1,0 +1,16 @@
+h1 {
+  font-family: sans-serif;
+}
+
+#main {
+  padding: 15px;
+}
+
+.boxed {
+  width: 200px;
+  border: 1px solid black;
+}
+
+.selected {
+  font-weight: bold;
+}

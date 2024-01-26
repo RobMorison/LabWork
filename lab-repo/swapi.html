@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Star Wars Characters</title>
+    <link rel="stylesheet" href="swapi.css" />
+  </head>
+  <body>
+    <h1>Star Wars Characters</h1>
+    <ul class="character-list" id="character-list"></ul>
+
+    <script>
+      // Function to fetch and display character data
+      function fetchCharacters() {
+        const apiUrl = "https://swapi2.azurewebsites.net/api/characters";
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const characterList = document.getElementById("character-list");
+
+            // Clear existing list
+            characterList.innerHTML = "";
+
+            // Iterate over characters and add them to the list
+            data.forEach((character) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = character.name;
+              characterList.appendChild(listItem);
+            });
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+          });
+      }
+
+      // Call the fetchCharacters function to load the data
+      fetchCharacters();
+    </script>
+  </body>
+</html>
